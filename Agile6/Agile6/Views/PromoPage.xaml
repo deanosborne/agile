@@ -1,0 +1,67 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="Agile6.Views.R1Page"
+             xmlns:vm="clr-namespace:Agile6.ViewModels"
+             Title="{Binding Title}">
+    
+    <ContentPage.BindingContext>
+        <vm:R1ViewModel />
+    </ContentPage.BindingContext>
+    
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Color x:Key="Primary">#2196F3</Color>
+            <Color x:Key="Accent">#96d1ff</Color>
+            <Color x:Key="LightTextColor">#999999</Color>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <StackLayout BackgroundColor="{StaticResource Accent}" VerticalOptions="FillAndExpand" HorizontalOptions="Fill">
+            <StackLayout Orientation="Horizontal" HorizontalOptions="Center" VerticalOptions="Center">
+                <ContentView Padding="0,40,0,16" VerticalOptions="FillAndExpand">
+                    <Label Padding="16,10,16,10">
+                        <Label.FormattedText HorizontalOptions="Center">
+                            <FormattedString>
+                                <FormattedString.Spans>
+                                    <Span Text="Rewards Balance&#10;" FontAttributes="Bold" />
+                                    <Span Text="0 Points" />
+                                    
+                                </FormattedString.Spans>
+                            </FormattedString>
+                            
+                        </Label.FormattedText>
+                    </Label>
+                    
+                </ContentView>
+            </StackLayout>
+            <StackLayout Orientation="Horizontal" HorizontalOptions="Center" VerticalOptions="Center">
+                <ContentView VerticalOptions="FillAndExpand">
+                    <Image Source="LOYALTY.png" VerticalOptions="Center" HeightRequest="64" />
+                </ContentView>
+            </StackLayout>
+        </StackLayout>
+        <ScrollView Grid.Row="1" IsEnabled="false">
+            <StackLayout Orientation="Vertical" Padding="16,0,16,0" Spacing="10">
+                <ListView IsEnabled="false">
+                    <ListView.ItemsSource>
+                        <x:Array Type="{x:Type x:String}">
+                            <x:String>Buy 1 get one free</x:String>
+                            <x:String>25% off next order</x:String>
+                            <x:String>10% off next order</x:String>
+                        </x:Array>
+                    </ListView.ItemsSource>
+                </ListView>
+            </StackLayout>
+        </ScrollView>
+    </Grid>
+    
+</ContentPage>

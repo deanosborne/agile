@@ -1,0 +1,55 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="Agile6.Views.R2Page"
+             xmlns:vm="clr-namespace:Agile6.ViewModels"
+             Title="{Binding Title}">
+    
+    <ContentPage.BindingContext>
+        <vm:R2ViewModel />
+    </ContentPage.BindingContext>
+    
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Color x:Key="Primary">#999999</Color>
+            <Color x:Key="Accent">#999999</Color>
+            <Color x:Key="LightTextColor">#999999</Color>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <ScrollView Grid.Row="1" IsEnabled="false">
+            <StackLayout Orientation="Vertical" Padding="0,0,0,0" Spacing="5">
+                <SearchBar Placeholder="Search items..."
+           CancelButtonColor="Black"
+           PlaceholderColor="Black"
+           TextColor="Black"
+           HorizontalTextAlignment="Center"
+           FontSize="Small"
+           FontAttributes="Italic"
+                           />
+            </StackLayout>
+        </ScrollView>
+        <ScrollView Grid.Row="1" IsEnabled="false">
+            <StackLayout Orientation="Vertical" Padding="0,45,0,0" Spacing="10">
+                <ListView IsEnabled="false">
+                    <ListView.ItemsSource>
+                        <x:Array Type="{x:Type x:String}">
+                            <x:String>Hornby $4.50</x:String>
+                            <x:String>Auckland $3.99</x:String>
+                            <x:String>Riccarton $4.99</x:String>
+                        </x:Array>
+                    </ListView.ItemsSource>
+                </ListView>
+            </StackLayout>
+        </ScrollView>
+    </Grid>
+
+</ContentPage>

@@ -1,0 +1,60 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="Agile6.Views.R3Page"
+             xmlns:vm="clr-namespace:Agile6.ViewModels"
+             Title="{Binding Title}">
+    
+    <ContentPage.BindingContext>
+        <vm:R3ViewModel />
+    </ContentPage.BindingContext>
+    
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Color x:Key="Primary">#2196F3</Color>
+            <Color x:Key="Accent">#96d1ff</Color>
+            <Color x:Key="LightTextColor">#999999</Color>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <ScrollView Grid.Row="1">
+            <StackLayout Orientation="Vertical" Padding="16,40,16,40" Spacing="10" HorizontalOptions="Center" VerticalOptions="Center">
+                <Label FontSize="22" HorizontalOptions="Center">
+                    <Label.FormattedText>
+                        <FormattedString>
+                            <FormattedString.Spans>
+                                <Span Text="Current Balance" FontAttributes="Bold" FontSize="22" />
+                                <Span Text=" " />
+                                <Span Text="0.00" ForegroundColor="{StaticResource LightTextColor}" />
+                            </FormattedString.Spans>
+                        </FormattedString>
+                    </Label.FormattedText>
+                </Label>
+                <Label>
+                    <Label.FormattedText>
+                        <FormattedString>
+                            <FormattedString.Spans>
+                                <Span Text="Need more credit?" FontAttributes="Bold" />
+                                <Span Text=" " />
+                                <Span Text="Top up on your next store visit or save time and top up in the app!" />
+                            </FormattedString.Spans>
+                        </FormattedString>
+                    </Label.FormattedText>
+
+                </Label>
+                <Button x:Name="ForgotButton"
+                Text="Top up"
+                Clicked="TopupButton_Clicked"/>
+            </StackLayout>
+        </ScrollView>
+    </Grid>
+    
+</ContentPage>
